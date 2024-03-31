@@ -1,29 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-import Hello, { World, World2 } from './module';
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-import Nav from './components/layout/Nav';
-import Home from './views/Home';
-import Grammar from './grammar';
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import Home from "./components/views/home/Home";
+import Cat from "./Cat";
 
 function App() {
-  const listArr = [
-    {title:"Home", des:"홈화면"},
-    {title:"About", des:"소개페이지"},
-  ]
+  const navArr = [
+    {title:'Home'},
+    {title:'About'},
+    {title:'SignIn'}
+  ] 
   return (
-    <>
-      <Grammar/>
-{/*       
-      <Header/>
-      <Nav/>
-      {listArr.map((item, index) => (
-        <Home key={index} title={item.title} des={item.des}/>
-      ))}
+    <div className="wrap">
+      <Header title="DashBoard" nav={navArr}/>
+      <Home title="Home" desc="홈 화면"/>
+      <Home title="About" desc="소개 화면"/>
+      <Home title="SignIn" desc="로그인 화면"/>
       <Footer/>
-       */}
-    </>
+    </div>
   );
 }
 
