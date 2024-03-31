@@ -5,6 +5,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Nav from './components/layout/Nav';
 import Home from './views/Home';
+import Grammar from './grammar';
 
 function App() {
   const listArr = [
@@ -13,12 +14,15 @@ function App() {
   ]
   return (
     <>
+      <Grammar/>
+{/*       
       <Header/>
       <Nav/>
       {listArr.map((item, index) => (
         <Home key={index} title={item.title} des={item.des}/>
       ))}
       <Footer/>
+       */}
     </>
   );
 }
