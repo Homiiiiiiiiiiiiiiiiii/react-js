@@ -3,6 +3,7 @@ import Footer from "./components/layout/Footer";
 import Home from "./components/views/home/Home";
 import Cat from "./Cat";
 import Event from "./grammar/Event";
+import State from "./grammar/State";
 
 function App() {
   const navArr = [
@@ -12,6 +13,7 @@ function App() {
   ] 
   return (
     <div className="wrap">
+      <State/>
       <Event/>
       <Header title="DashBoard" nav={navArr}/>
       <Home title="Home" desc="홈 화면"/>
