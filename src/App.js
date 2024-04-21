@@ -4,6 +4,7 @@ import Home from "./components/views/home/Home";
 import Cat from "./Cat";
 import Event from "./grammar/Event";
 import State from "./grammar/State";
+import News from "./components/views/news/News";
 
 function App() {
   const navArr = [
@@ -13,6 +14,7 @@ function App() {
   ] 
   return (
     <div className="wrap">
+      <News/>
       <State/>
       <Event/>
       <Header title="DashBoard" nav={navArr}/>
