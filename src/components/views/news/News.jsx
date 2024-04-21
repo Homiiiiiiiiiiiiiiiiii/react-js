@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useEffect, useState } from "react"
 
 function News(){
@@ -6,14 +7,32 @@ function News(){
 
     //마운트 시에만 실행(페이지 접속했을 때)
     useEffect(() => {
-        fetch(`https://newsapi.org/v2/top-headlines?country=kr&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`) //API주소
-            //fetch는 then 2번 작성
-            .then((response) => response.json()) //↑api로 가져온 데이터를 JSON 형태로 변환
-            .then((data) => {// json형태로 변환한 데이터를 data라는 매개변수로 받음
-                console.log(data)
-                setNews(data.articles) //news에 data.articles 값이 들어감
-            }) 
-            .catch((error) => console.error(error))
+        // fetch(`https://newsapi.org/v2/top-headlines?country=kr&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`) //API주소
+        //     //fetch는 then 2번 작성
+        //     .then((response) => response.json()) //↑api로 가져온 데이터를 JSON 형태로 변환
+        //     .then((data) => {// json형태로 변환한 데이터를 data라는 매개변수로 받음
+        //         console.log(data)
+        //         setNews(data.articles) //news에 data.articles 값이 들어감
+        //     }) 
+        //     .catch((error) => console.error(error))
+
+        //async/await 사용
+        const fetchData = async () => {
+            try{ //성공 시
+                
+                //데이터 가져오기
+                const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=kr&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`)
+                //JSON 형태로 변환
+                // const data = await response.json() 
+                console.log(response.data)
+                setNews(response.data.articles)
+
+            }catch(error){//실패 시
+                console.log(error)
+            }
+        }
+
+        fetchData()
     }, [])//의존성 배열
 
     return(
