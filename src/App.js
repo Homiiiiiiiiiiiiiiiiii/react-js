@@ -5,6 +5,7 @@ import Cat from "./Cat";
 import Event from "./grammar/Event";
 import State from "./grammar/State";
 import News from "./components/views/news/News";
+import UseEffect from './grammar/UseEffect';
 
 function App() {
   const navArr = [
@@ -14,6 +15,7 @@ function App() {
   ] 
   return (
     <div className="wrap">
+      <UseEffect />
       <News/>
       <State/>
       <Event/>
