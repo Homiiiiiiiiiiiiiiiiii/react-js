@@ -7,6 +7,8 @@ import State from "./grammar/State";
 import News from "./components/views/news/News";
 import UseEffect from './grammar/UseEffect';
 import UseReducer from "./grammar/UseReducer";
+import Context from './grammar/Context';
+import ContextOrder from './grammar/ContextOrder';
 
 function App() {
   const navArr = [
@@ -16,8 +18,13 @@ function App() {
   ] 
   return (
     <div className="wrap">
+      <ContextOrder />
+      <hr/>
+      <Context />
+      <hr/>
       <UseReducer />
-      <UseEffect />
+      <hr/>
+      {/* <UseEffect /> */}
       <News/>
       <State/>
       <Event/>
